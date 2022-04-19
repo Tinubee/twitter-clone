@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { authService, dbService } from "../fbase";
 
 export default ({ refreshUser, userObj }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [newDisplayname, setNewDisplayname] = useState(userObj.displayName);
   const onLogOutClick = () => {
     authService.signOut();
-    history.push("/");
+    navigate("/");
   };
 
   const onChange = (e) => {
@@ -39,6 +39,7 @@ export default ({ refreshUser, userObj }) => {
       });
       refreshUser();
     }
+    setNewDisplayname("");
   };
 
   return (
