@@ -4,10 +4,9 @@ import { dbService, storageService } from "fbase";
 import Nweet from "../components/Nweet";
 
 const Home = ({ userObj }) => {
-  console.log(userObj);
   const [nweet, setNweet] = useState("");
   const [nweets, setNweets] = useState([]);
-  const [attachment, setAttachment] = useState();
+  const [attachment, setAttachment] = useState("");
   //   const getNweets = async () => {
   //     const dbnweets = await dbService.collection("nweets").get();
   //     dbnweets.forEach((document) => {
